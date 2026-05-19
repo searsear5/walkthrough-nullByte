@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md.md",
+                "file": "Readme.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Readme.md"
+              "title": "Readme"
             }
           }
         ]
@@ -183,10 +183,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "789db770f889f1af",
+  "active": "e03c9c52b2a7cbf6",
   "lastOpenFiles": [
     "images/web3findColumnInTable-users.png",
-    "Readme.md.md",
+    "Readme.md",
     "images/web3findTableInDatabase-seth.png",
     "images/web3findUserPass.png",
     "images/web3findUserVersionDatabase.png",
