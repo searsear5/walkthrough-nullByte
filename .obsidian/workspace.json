@@ -183,20 +183,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "e03c9c52b2a7cbf6",
+  "active": "789db770f889f1af",
   "lastOpenFiles": [
-    "images/root.png",
-    "images/exportPathForPrivilageEscalationByProcwatch.png",
-    "images/createShellForProcwatch.png",
-    "images/runProcwatch.png",
-    "images/goToPathProcwatch.png",
-    "images/ls -la.png",
-    "images/ssh.png",
-    "images/hash2.png",
-    "images/hash1.png",
-    "images/web3findUserPass.png",
-    "images/web3findColumnInTable=users.png",
+    "images/web3findColumnInTable-users.png",
     "Readme.md.md",
+    "images/web3findTableInDatabase-seth.png",
+    "images/web3findUserPass.png",
+    "images/web3findUserVersionDatabase.png",
+    "images/web3numberColumn2.png",
+    "images/netdiscoverfindip.md",
+    "images/netdiscoverfindip.png",
+    "images/web3numberColumn.png",
+    "images/web3findAllDatabase.png",
+    "images/web2bruteForce.png",
+    "images/runProcwatch.png",
     "images"
   ]
 }

