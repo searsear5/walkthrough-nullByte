@@ -13,28 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "Readme.md.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
-            }
-          }
-        ]
-      },
-      {
-        "id": "2194528a63934140",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "70502a1f2fac87b9",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "Readme.md"
             }
           }
         ]
@@ -94,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 202.5
   },
   "right": {
     "id": "a0a48d51cd6ebf5e",
@@ -199,8 +183,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "789db770f889f1af",
+  "active": "e03c9c52b2a7cbf6",
   "lastOpenFiles": [
-    "Welcome.md"
+    "images/root.png",
+    "images/exportPathForPrivilageEscalationByProcwatch.png",
+    "images/createShellForProcwatch.png",
+    "images/runProcwatch.png",
+    "images/goToPathProcwatch.png",
+    "images/ls -la.png",
+    "images/ssh.png",
+    "images/hash2.png",
+    "images/hash1.png",
+    "images/web3findUserPass.png",
+    "images/web3findColumnInTable=users.png",
+    "Readme.md.md",
+    "images"
   ]
 }
